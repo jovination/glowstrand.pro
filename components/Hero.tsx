@@ -44,7 +44,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center bg-[#FFFDF8]">
       {/* Header */}
-      <header className=" fixed top-0 left-0 right-0 z-50 bg-[#FFFDF8]/80 backdrop-blur-md">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#FFFDF8]/80 backdrop-blur-md">
         <div className="container flex items-center justify-between py-4 px-2">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-2">
@@ -75,7 +75,7 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="px-2 pt-32 pb-20">
+      <section className="container pt-32 pb-20">
         <div className="relative">
           <div className="absolute -left-4 top-0 h-72 w-72 rounded-full bg-[#ADFF00]/20 blur-3xl" />
           <div className="relative">
@@ -144,7 +144,7 @@ export default function Home() {
       </section>
 
       {/* Main Image */}
-      <section className="px-2  md:py-12">
+      <section className="container  md:py-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
