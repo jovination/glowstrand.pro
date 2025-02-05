@@ -2,9 +2,8 @@
 
 import { useEffect } from "react"
 import Image from "next/image"
-import  ModeToggle from "@/components/mode-toggle"
 import { Button } from "@/components/ui/button"
-import { Plus, ArrowRight, Leaf } from "lucide-react"
+import { Plus, ArrowRight, Leaf, Check } from "lucide-react"
 import { motion, useAnimation } from "framer-motion"
 
 export default function Home() {
@@ -42,39 +41,7 @@ export default function Home() {
   const categories = ["Moisturizer", "Cleanser", "Sunscreen"]
 
   return (
-    <div className="flex min-h-screen flex-col items-center bg-[#FFFDF8]">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#FFFDF8]/80 backdrop-blur-md">
-        <div className="container flex items-center justify-between py-4 px-2">
-          <div className="flex items-center gap-8">
-            <div className="flex items-center gap-2">
-              <Leaf className="h-5 w-5 text-[#ADFF00]" />
-              <span className="text-xl font-medium tracking-tight">GlowStrand</span>
-            </div>
-            <nav className="hidden md:flex items-center gap-6">
-              <a href="#" className="text-sm hover:text-[#ADFF00] transition-colors">
-                Products
-              </a>
-              <a href="#" className="text-sm hover:text-[#ADFF00] transition-colors">
-                About
-              </a>
-              <a href="#" className="text-sm hover:text-[#ADFF00] transition-colors">
-                Services
-              </a>
-              <a href="#" className="text-sm hover:text-[#ADFF00] transition-colors">
-                Contact
-              </a>
-            </nav>
-          </div>
-          <Button
-          size="lg"  className="bg-[#ADFF00] hover:bg-[#ADFF00]/90 h-12 text-black rounded-full    shadow-lg shadow-[#ADFF00]/20"
-              >
-                Get Started
-              </Button>
-        </div>
-      </header>
-
-      {/* Hero Section */}
+    <div className="ml-[1px] md:ml-0 flex min-h-screen flex-col items-center bg-[#FFFDF8]">
       <section className="container pt-32 pb-20">
         <div className="relative">
           <div className="absolute -left-4 top-0 h-72 w-72 rounded-full bg-[#ADFF00]/20 blur-3xl" />
@@ -100,7 +67,7 @@ export default function Home() {
               <span className="font-medium">25K+ Users Glow with Confidence</span>
             </motion.div>
 
-          <div className="relative">
+            <div className="relative mt-10 ">
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={controls}
@@ -110,7 +77,7 @@ export default function Home() {
                 Radiant
                 <span className="text-sm ml-2 align-top">(20)</span>
               </motion.h1>
-              
+
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={controls}
@@ -120,7 +87,6 @@ export default function Home() {
                 Beauty
               </motion.h1>
             </div>
-
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -135,15 +101,16 @@ export default function Home() {
                 Try Free Analysis
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
-              <p className="text-neutral-500 max-w-md">
-              We're dedicated to helping you restore and maintain healthy hair. Our AI-driven analysis offers personalized solutions tailored to address your unique hair concerns and needs.
+              <p className="text-neutral-500 max-w-md mt-10 md:mt-0">
+                We're committed to helping you achieve optimal, healthy skin. Our AI-powered platform provides
+                personalized skincare solutions, analyzing your unique skin needs to recommend tailored treatments and
+                products.{" "}
               </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Main Image */}
       <section className="container  md:py-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -156,7 +123,7 @@ export default function Home() {
             alt="Happy clients using skincare products"
             width={1400}
             height={700}
-            className=" h-[500px] md:h-[700px] w-full object-cover hover:scale-105 transition-transform duration-700"
+            className=" h-[550px] md:h-[700px] w-full object-cover hover:scale-105 transition-transform duration-700"
           />
           <div className="absolute bottom-8 left-8 bg-white/80 backdrop-blur-md rounded-full px-4 py-2 flex items-center gap-2">
             <Leaf className="h-4 w-4 text-[#ADFF00]" />
@@ -165,7 +132,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Stats Section */}
       <section className="container py-32">
         <div className="grid gap-16 lg:grid-cols-2">
           <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
@@ -198,7 +164,7 @@ export default function Home() {
             className="lg:text-right"
           >
             <div className="inline-block rounded-[2rem] bg-black p-8 text-white">
-              <blockquote className="text-xl font-light leading-relaxed">"{testimonials[0].quote}"</blockquote>
+              <blockquote className="text-xl font-light">"{testimonials[0].quote}"</blockquote>
               <cite className="mt-6 block text-sm text-neutral-400">
                 {testimonials[0].name} — {testimonials[0].role}
               </cite>
@@ -217,13 +183,13 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
- {/* Treatments Section */}
- <section className="container py-24">
+
+      <section className="container py-24">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="rounded-[2.5rem] bg-black p-12 text-white"
+          className="rounded-[2.5rem] bg-black p-6 md:p-10 text-white"
         >
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
@@ -235,9 +201,7 @@ export default function Home() {
                 We offer a range of proven acne solutions and treatments, targeting different types of acne with
                 personalized approaches.
               </p>
-              <Button
-              size="lg"
-               className="mt-8 rounded-full bg-white text-black hover:bg-neutral-100 h-14">
+              <Button size="lg" className="mt-8 rounded-full bg-white text-black hover:bg-neutral-100 h-14">
                 Learn More
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -248,7 +212,7 @@ export default function Home() {
                 alt="Advanced skincare treatment"
                 width={600}
                 height={400}
-                className="rounded-[2rem] object-cover h-[400px]"
+                className="rounded-[2rem] object-cover h-[500px]"
               />
               <div className="absolute bottom-6 right-6 flex h-14 w-14 items-center justify-center rounded-full bg-[hsl(var(--accent-1))]">
                 <Plus className="h-6 w-6 text-black" />
@@ -257,54 +221,86 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
-      {/* Skincare Section */}
-      <section className="container py-32">
-        <div className="grid gap-16 lg:grid-cols-2">
-          <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
-            <h2 className="font-display text-[clamp(4rem,12vw,8rem)] font-bold leading-none tracking-tighter">
-              Skincare
-              <span className="block text-neutral-200">Essentials</span>
-            </h2>
-            <div className="mt-8 flex flex-wrap gap-3">
-              {categories.map((category, i) => (
-                <motion.span
-                  key={category}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  className="rounded-full bg-black px-4 py-2 text-sm text-white"
+
+      <section className="container py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[#ADFF00]/10 rounded-[3rem] -skew-y-3 transform origin-top-right"></div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="relative z-10 text-center"
+        >
+          <h2 className="font-display text-5xl font-bold mb-12">Choose Your Glow</h2>
+          <div className="grid gap-8 md:grid-cols-3">
+            {[
+              {
+                name: "AI Analysis",
+                price: "$19",
+                period: "month",
+                features: [
+                  "AI-generated skincare analysis plans",
+                  "24/7 chatbot support",
+                  "Weekly skin progress tracking",
+                ],
+              },
+              {
+                name: "Advanced",
+                price: "$49",
+                period: "month",
+                features: [
+                  "Advanced personalized plans",
+                  "1-on-1 expert consultations",
+                  "Priority customer support",
+                  "Exclusive product discounts",
+                ],
+              },
+              {
+                name: "Lifetime",
+                price: "$99",
+                period: "one-time",
+                features: [
+                  "Lifetime access to basic features",
+                  "Personalized skincare routine",
+                  "Access to skin health library",
+                  "Quarterly skin assessments",
+                ],
+              },
+            ].map((plan, index) => (
+              <motion.div
+                key={plan.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className={`rounded-[2rem] p-8 flex flex-col ${
+                  index === 1 ? "bg-black text-white" : "bg-white"
+                } shadow-xl hover:shadow-2xl transition-shadow duration-300`}
+              >
+                <h3 className="text-2xl font-bold mb-4">{plan.name}</h3>
+                <div className="text-4xl font-bold mb-2">{plan.price}</div>
+                <div className={`${index === 1 ? "text-gray-300" : "text-neutral-500"} mb-6`}>per {plan.period}</div>
+                <ul className="mb-8 flex-grow">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="mb-2 flex items-center">
+                      <Check className={`h-5 w-5 ${index === 1 ? "text-[#ADFF00]" : "text-black"} mr-2`} />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Button
+                  className={`w-full h-14 rounded-full ${
+                    index === 1
+                      ? "bg-[#ADFF00] text-black hover:bg-[#ADFF00]/90"
+                      : "bg-black text-white hover:bg-neutral-800"
+                  }`}
                 >
-                  {category}
-                </motion.span>
-              ))}
-            </div>
-            <p className="mt-6 text-xl font-light text-neutral-600">Handpicked Products For Your Skin's Needs</p>
-            <Button className="mt-12 rounded-full bg-[#ADFF00] text-black hover:bg-[#ADFF00]/90 h-14 px-8">
-              See Products
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="relative"
-          >
-            <Image
-              src="https://images.pexels.com/photos/3785147/pexels-photo-3785147.jpeg?auto=compress&cs=tinysrgb&w=1600"
-              alt="Skincare products"
-              width={600}
-              height={400}
-              className="rounded-[2rem] object-cover h-[500px]"
-            />
-            <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl p-4 shadow-xl">
-              <Leaf className="h-6 w-6 text-[#ADFF00]" />
-            </div>
-          </motion.div>
-        </div>
+                  Choose Plan
+                </Button>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
-      {/* Contact Section */}
       <section className="container py-32">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -313,10 +309,10 @@ export default function Home() {
           className="flex flex-col items-center text-center"
         >
           <h2 className="font-display text-4xl font-bold">Get In Touch</h2>
-          <p className="mt-4 text-xl font-light text-neutral-600">Your Journey To Healthy Skin Starts Here</p>
-          <div className="mt-8 text-5xl font-medium tracking-tight">
-            hello@pure
-            <span className="text-[#ADFF00]">glow.com</span>
+          <p className="mt-4  md:text-xl font-light text-neutral-600">Your Journey To Healthy Skin Starts Here</p>
+          <div className="mt-8 text-3xl md:text-5xl font-medium tracking-tight">
+            hello@glow
+            <span className="text-[#ADFF00]">strands.com</span>
           </div>
           <Button className="mt-8 rounded-full" variant="outline" size="lg">
             Fill Your Email Details
